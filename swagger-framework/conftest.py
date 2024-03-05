@@ -10,6 +10,7 @@ def browser_session_test(browser):
     context = browser.new_context()
     page = context.new_page()
     yield page
+
     # teardown step:
     page.close()
 
