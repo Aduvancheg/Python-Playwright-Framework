@@ -29,6 +29,7 @@ jobs:
         pip install flake8 pytest-playwright
         pip install playwright
         python -m pip install playwright
+        pip install tenacity
     - name: Ensure Playwright browsers are installed
       run: python -m playwright install
     - name: Lint with flake8
