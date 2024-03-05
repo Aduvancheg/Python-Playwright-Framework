@@ -15,7 +15,7 @@ def browser_session_test(browser):
     page.close()
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def browser_session():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
