@@ -1,8 +1,5 @@
 from playwright.sync_api import sync_playwright
 import pytest
-from faker import Faker
-
-fake = Faker()
 
 
 # If we want run faster our tests we need use this structure, because user will be logged in.
