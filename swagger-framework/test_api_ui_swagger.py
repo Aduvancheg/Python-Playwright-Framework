@@ -1,12 +1,10 @@
 from swagger_playwright import SecretKey, BasePage
 from api_framework_swagger import RequestPOST, RequestGET, RequestPUT, RequestDELETE
 from playwright.sync_api import expect
-import pytest
 
 expect.set_options(timeout=10_000)
 
 
-@pytest.mark.skip
 def test_create_and_verify(browser_session):
     """This test create new record by POST method, afterwards GET
     method takes records data and verify equality of the names"""
@@ -21,7 +19,6 @@ def test_create_and_verify(browser_session):
     assert payload["Name"] == record_name
 
 
-@pytest.mark.skip
 def test_create_and_update(browser_session):
     """This test create new record by POST method, afterwards PUT
     method will update Name of the Coffee"""
@@ -43,7 +40,6 @@ def test_create_and_update(browser_session):
     assert updated_name == record_name
 
 
-@pytest.mark.skip
 def test_create_and_delete(browser_session):
     """This test create new record by POST method, afterwards DELETE
     method will delete this record"""
