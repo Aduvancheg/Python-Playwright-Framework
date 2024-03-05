@@ -17,7 +17,7 @@ def browser_session_test(browser):
 @pytest.fixture(scope="function")
 def browser_session():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         context = browser.new_context()
         page = context.new_page()
         try:
