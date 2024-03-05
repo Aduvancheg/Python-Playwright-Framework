@@ -5,6 +5,18 @@ from faker import Faker
 fake = Faker()
 
 
+# If we want run faster our tests we need use this structure, because user will be logged in.
+pytest.fixture(scope="session")
+
+
+def browser_session_test(browser):
+    context = browser.new_context()
+    page = context.new_page()
+    yield page
+    # teardown step:
+    page.close()
+
+
 @pytest.fixture(scope="function")
 def browser_session():
     with sync_playwright() as p:
