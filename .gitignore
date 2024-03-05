@@ -10,7 +10,7 @@ just_test.py
 api_checkboxes.py
 api_base_page.py
 abstract_frame.py
-secret_key.py
+secret_keys.py
 
 # C extensions
 *.so
