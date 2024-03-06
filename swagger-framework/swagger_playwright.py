@@ -30,8 +30,7 @@ class BasePage:
     base_url_shope: str = os.getenv("API_URL_SHOP")
 
     # Version 2
-    base_url_coffee2: str = os.environ["API_URL_COFFEE"]
-    base_url_shope2: str = os.environ["API_URL_SHOP"]
+    base_url_coffee2: str = os.environ.get("API_URL_COFFEE")
     base_endpoint: str = None
 
     @staticmethod
