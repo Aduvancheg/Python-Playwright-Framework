@@ -1,22 +1,20 @@
 from swagger_playwright import SecretKey, BasePage
 from api_framework_swagger import RequestPOST, RequestGET, RequestPUT, RequestDELETE
-from playwright.sync_api import expect
-
-expect.set_options(timeout=10_000)
 
 
-def test_create_and_verify(browser_session):
+def test_create_and_verify(browser_session, random_name):
     """This test create new record by POST method, afterwards GET
     method takes records data and verify equality of the names"""
 
     page = browser_session
     secret_key = SecretKey.get_secret_key(page)
     endpoint = BasePage.endpoint_coffee(secret_key)
+    coffee_name = random_name
 
-    payload = {"Name": "New Comfy Coffee", "Description": "Never be the same!"}
+    payload = {"Name": {coffee_name}, "Description": "Never be the same!"}
     record_id = RequestPOST.post_create_record(endpoint, payload)
     record_name = RequestGET.get_record_data(endpoint, record_id)
-    assert payload["Name"] == record_name
+    assert coffee_name == record_name
 
 
 def test_create_and_update(browser_session):

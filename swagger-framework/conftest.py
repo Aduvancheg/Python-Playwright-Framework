@@ -1,6 +1,16 @@
 from playwright.sync_api import sync_playwright
 import pytest
 
+from faker import Faker
+
+fake = Faker()
+
+
+@pytest.fixture(scope="session")
+def random_name():
+    coffee_name = fake.name()[:5]
+    return coffee_name[:5] + "Coffee"
+
 
 # If we want run faster our tests we need use this structure, because user will be logged in.
 # pytest.fixture(scope="function")

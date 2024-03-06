@@ -21,12 +21,13 @@ class RequestPOST(BaseRequests):
     def post_create_record(endpoint, payload):
         """This realization of POST method will return an ID of new created record"""
 
-        response = requests.post(endpoint, json=payload)
+        response = requests.post(endpoint, payload)
         try:
             if response.status_code == 200:
                 json_response = response.json()
                 new_record_id = json_response[0]["Id"]
-                return new_record_id
+                print(new_record_id)
+                return int(new_record_id)
 
             else:
                 print(f"POST request failed with status code {response.status_code}")
