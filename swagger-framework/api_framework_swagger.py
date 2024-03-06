@@ -25,8 +25,8 @@ class RequestPOST(BaseRequests):
         try:
             if response.status_code == 200:
                 json_response = response.json()
-                new_record_id = json_response["Id"]
-                return int(new_record_id)
+                new_record_id = json_response[0]["Id"]
+                return new_record_id
 
             else:
                 print(f"POST request failed with status code {response.status_code}")
