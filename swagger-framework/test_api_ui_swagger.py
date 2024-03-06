@@ -54,6 +54,7 @@ def test_create_and_delete(browser_session):
     assert delete_record == 204
 
 
+# @pytest.mark.skip
 def test_log_in(browser_session):
     page = browser_session
     page.goto("https://symonstorozhenko.wixsite.com/website-1")

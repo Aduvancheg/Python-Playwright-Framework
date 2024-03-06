@@ -3,14 +3,14 @@ import pytest
 
 
 # If we want run faster our tests we need use this structure, because user will be logged in.
-pytest.fixture(scope="session")
+pytest.fixture(scope="function")
 
 
-def browser_session_test(browser):
+def browser_session_twoo(browser):
     context = browser.new_context()
     page = context.new_page()
     yield page
-
+    page.set_default_timeout(3000)
     # teardown step:
     page.close()
 
