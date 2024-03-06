@@ -30,6 +30,7 @@ jobs:
         pip install playwright
         python -m pip install playwright
         pip install tenacity
+        pip install Faker
     - name: Ensure Playwright browsers are installed
       run: python -m playwright install chromium
     - name: Lint with flake8
